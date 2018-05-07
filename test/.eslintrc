@@ -1,0 +1,6 @@
+{
+  extends: "../",
+  global: {
+    wait: true
+  }
+}

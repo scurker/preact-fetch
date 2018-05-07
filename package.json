@@ -1,0 +1,58 @@
+{
+  "name": "preact-fetch",
+  "version": "1.0.0-beta.1",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "scripts": {
+    "clean": "rm -rf dist/*",
+    "coverage": "nyc --repoter lcov --reporter text --extension .jsx --require @babel/register npm run test",
+    "coverage:report": "nyc report --reporter=text-lcov | coveralls",
+    "copy-typescript-definition": "cp -f src/preactFetch.d.ts dist",
+    "build": "npm-run-all clean transpile copy-typescript-definition",
+    "lint": "eslint --ext '.js,.jsx' .",
+    "test": "npm-run-all test:typescript test:js",
+    "test:js": "BABEL_ENV=test ava",
+    "test:typescript": "tsc -p ./test --noEmit",
+    "transpile": "rollup -c"
+  },
+  "files": [
+    "dist"
+  ],
+  "typings": "./dist/preactFetch.d.ts",
+  "author": "Jason Wilson <jason@scurker.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.46",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.46",
+    "@babel/plugin-transform-react-jsx": "7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "@babel/register": "^7.0.0-beta.46",
+    "@scurker/eslint-config": "^1.1.2",
+    "ava": "^1.0.0-beta.4",
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.7.0",
+    "npm-run-all": "^4.1.3",
+    "nyc": "^11.7.1",
+    "preact": "^8.2.9",
+    "preact-render-spy": "^1.2.2",
+    "rollup": "^0.58.2",
+    "rollup-plugin-babel": "^4.0.0-beta.4",
+    "sinon": "^5.0.4",
+    "typescript": "^2.8.3",
+    "undom": "^0.3.3"
+  },
+  "ava": {
+    "require": [
+      "@babel/register",
+      "./test/_setup"
+    ]
+  },
+  "nyc": {
+    "include": [
+      "src"
+    ]
+  }
+}

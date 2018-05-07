@@ -1,0 +1,15 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["@scurker", "@scurker/eslint-config/preact"],
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 8
+  },
+  "globals": {
+    "fetch": true
+  }
+}

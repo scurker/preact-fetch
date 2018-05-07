@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "jsxFactory": "h"
+  },
+  "files": [
+    "test.tsx",
+    "../src/preactFetch.d.ts"
+  ]
+}
