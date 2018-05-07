@@ -12,6 +12,7 @@ let fetchStub;
 test.beforeEach(() => {
   sandbox = sinon.createSandbox();
   if(!global.fetch) {
+    // eslint-disable-next-line no-empty-function
     global.fetch = function() {};
   }
   fetchStub = sandbox.stub(global, 'fetch');
@@ -101,6 +102,7 @@ test.serial('should set async state to loading', async t => {
 });
 
 test.serial('should set async state to resolved', async t => {
+  // eslint-disable-next-line no-empty-function
   fetchStub.returns(Promise.resolve({ json() {} }));
 
   let Component = withFetch('https://foo.com')(EmptyComponent)

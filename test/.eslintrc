@@ -1,6 +1,6 @@
 {
-  extends: "../",
-  global: {
+  extends: "../.eslintrc",
+  globals: {
     wait: true
   }
 }
